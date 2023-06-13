@@ -23,19 +23,48 @@ defmodule Stack do
 end
 ```
 
+<!-- livebook:{"output":true} -->
+
+```
+{:module, Stack, <<70, 79, 82, 49, 0, 0, 14, ...>>, {:handle_cast, 2}}
+```
+
 ```elixir
 {:ok, pid} = GenServer.start_link(Stack, [:hello])
 ```
 
+<!-- livebook:{"output":true} -->
+
+```
+{:ok, #PID<0.286.0>}
+```
+
 ```elixir
 GenServer.call(pid, :pop)
+```
+
+<!-- livebook:{"output":true} -->
+
+```
+:hello
 ```
 
 ```elixir
 GenServer.cast(pid, {:push, :world})
 ```
 
+<!-- livebook:{"output":true} -->
+
+```
+:ok
+```
+
 ```elixir
 GenServer.call(pid, :pop)
 ```
 
+<!-- livebook:{"output":true} -->
+
+```
+:world
+```
